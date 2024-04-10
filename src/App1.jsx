@@ -58,7 +58,7 @@ return (
 		d-flex justify-content-center 
 		align-items-center"
 		style={{ maxWidth: '600px', margin: '0 auto' }}>
-	{/* <h1 className="text-success mt-2">GeekForGeeks</h1> */}
+	
 	<h3 className=" mt-2">Quiz</h3>
 	<div>
 	

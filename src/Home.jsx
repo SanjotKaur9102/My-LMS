@@ -1,7 +1,15 @@
 import React from 'react'
-
-export default function Home() {
+import Dashboard from './Dashboard'
+import Footer from './Footer'
+const Home=()=>{
   return (
-    <div> This is Home page</div>
+    <>
+    <div> <b> Welcome To Home Page </b> </div>
+<Dashboard/>
+<Footer/>
+</>
   )
 }
+
+
+export default Home

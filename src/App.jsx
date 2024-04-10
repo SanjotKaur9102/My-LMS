@@ -27,6 +27,7 @@ import Inlang from './Inlang';
 import Quiz from './Quiz';
 import App1 from './App1'
 import Apppp from './Apppp'
+import Footer from './Footer';
 // import Courses from './Courses'
 export default function App(){
 
@@ -53,6 +54,8 @@ export default function App(){
    <Route path="/Quiz" element={<Quiz/>}></Route>
    <Route path="/App1" element={<App1/>}></Route>
    <Route path="/Apppp" element={<Apppp/>}></Route>
+   {/* <Route path="/html.pdf" element={<html.pdf/>}></Route> */}
+   <Route path="/Footer" element={<Footer/>}></Route>
   </Routes>
   </BrowserRouter>
  

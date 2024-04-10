@@ -14,7 +14,9 @@ import Style from "./Css/LMSUI.module.css"
 import { Link } from 'react-router-dom';
 
 import { Form } from 'react-bootstrap';
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from 'react-responsive-carousel';
+import Footer from './Footer';
 
 // import button from 'bootstrap';
 
@@ -173,10 +175,58 @@ const filterCourses=(courseName)=>{
             </Row>
            
           </Container>
-          
+
+         
+    <Carousel centerMode infiniteLoop centerSlidePercentage={90}>
+    {/* <div className='row'> */}
+<div className={style.upimg}>
+   
+  <img src='https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900'
+   width="1530"
+   height="350"
+  />
+   <div className={style.centered}><strong>Easier Access To Studying Material</strong></div>
+  {/* </img> */}
+ 
+ 
+</div>
+
+{/* <div className={style.upimg}> */}
+<div>
+  <img src='https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900'
+   width="1530"
+   height="350"
+  />
+  <div className={style.centered}><strong>ENRCICH YOUR PROGRAMMING SKILLS</strong></div>
+  {/* </img> */}
+  </div>
+
+<div>
+  <img src='https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900'
+   width="1530"
+   height="350"
+  
+  />
+{/* 
+<img src='https://th.bing.com/th/id/OIP.-7mWMV1pNkEvAW91dMpNKQHaEo?w=308&h=192&c=7&r=0&o=5&dpr=1.3&pid=1.7'
+   width="1530"
+   height="350"
+   className={style.overlay-image}
+  /> */}
+
+  <div className={style.centered}><strong><i>Improves Presentation Skills</i></strong></div>
+  {/* </img> */}
+  </div>
+{/* </div> */}
+
+</Carousel>
+{/* </div> */}
 
 
-
+<center>
+<h1 className='text-warning mt-1 mb-5'>
+  <i><u><strong>EXPLORE OUR COURSES</strong></u></i></h1>
+</center>
   <Row >
     {courses.map((course)=>{
       if(filterCourses(course.name)){
@@ -201,7 +251,7 @@ const filterCourses=(courseName)=>{
       return null;
     })}
   </Row>
-
+{/* <Footer/> */}
        </>
 
 

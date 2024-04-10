@@ -10,6 +10,7 @@ import React, { useState } from 'react'
     import InputGroup from 'react-bootstrap/InputGroup';
     import { ShimmerThumbnail } from "react-shimmer-effects";
     import {BrowserRouter,Routes,Route} from "react-router-dom"
+    
 import Dashboard from './Dashboard';
 //import Login from './Login';
     // import App from './App';
@@ -21,6 +22,7 @@ export default function Login() {
     
             return (
       <>
+      <div data-aos="fade-left">
           {buttonClicked? 
       <div className={style.root} >
           
@@ -121,7 +123,7 @@ export default function Login() {
     </Card>
         </div>
     : <ShimmerThumbnail height={250} rounded /> }
-        
+        </div>
         </>
       )
     }

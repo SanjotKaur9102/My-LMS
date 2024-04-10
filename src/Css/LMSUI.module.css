@@ -224,6 +224,31 @@ font-size: 18px;
     
 } */
 
-.back{
+.back, .bfull{
+    /* background-color: #262626; */
     background-image: linear-gradient(black,white);
+background: black;
 }
+.upimg{
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-top: 2px;
+    padding-bottom: 29px;
+    /* position: relative;
+    text-align: center;
+    color: red; */
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: azure;
+  }
+
+  .overlay-image{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: 0.7; 
+  }

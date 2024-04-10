@@ -1,6 +1,5 @@
 // This file will display the user’s score.
 
-// Score.js
 
 import React from 'react'
 

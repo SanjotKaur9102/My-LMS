@@ -8,9 +8,9 @@ export default function() {
     <row>
     <Col sm={7}>   <div className={style.top}>
    
-    <Col sm={5}>
+    {/* <Col sm={5}>
     <Image src="https://th.bing.com/th/id/OIP.1OInQ_EtpV8ukOHGAWR43AAAAA?w=378&h=247&rs=1&pid=ImgDetMain"/>
-    </Col>
+    </Col> */}
 
    <h2>Learn HTML Using Notepad or TextEdit</h2>
    

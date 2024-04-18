@@ -8,12 +8,11 @@ import React, { useState } from 'react'
     import { CardBody, Col, Row } from 'react-bootstrap';
     import style from "./Css/LMSUI.module.css"
     import Image from 'react-bootstrap/Image';
-    import { ShimmerThumbnail } from "react-shimmer-effects";
+    // import { ShimmerThumbnail } from "react-shimmer-effects";
     import {BrowserRouter,Routes,Route, Link} from "react-router-dom"
-    import Signup from './Signup';
-    
-    
+ import Signup from './Signup'
 import Dashboard from './Dashboard';
+// import Sidenav from './Components/Sidenav';
     Dashboard
     //import App from './App';
 export default function Login() {
@@ -21,8 +20,12 @@ export default function Login() {
 
 
     
+    
             return (
       <>
+
+<div data-aos="zoom-in-up">
+      {/* <Sidenav/> */}
       {buttonClicked?
       <div className={style.root} >
           
@@ -48,16 +51,24 @@ export default function Login() {
               <Form.Control
              
                 type="text"
-                placeholder="enter your email"/>
+                placeholder="enter your email"
+                id='email'
+                />
     
     
               <Form.Label >Password</Form.Label>
                <Form.Control
                 
-                type="Password"
+                type="password"
                 placeholder="password"
-                
+                id='password'
+                // id="exampleInputPassword1"
+                name="password"
               />
+
+
+<div style={{marginTop:'15px'}}>
+              
          <Link to="/Dashboard">        <Button variant="primary" onClick={()=>{
             setTimeout(()=>{
                 Navigate,("/login")
@@ -65,12 +76,19 @@ export default function Login() {
             setbuttonClicked(false)
           }}>Login</Button>{' '}
           </Link>
-  
-          <Link to="/Signup">
+  </div>
+
+          {/* <Link to="../Signup">
           Don't have an account,Click Here
-          </Link>
+          </Link> */}
           </Row>
+{/* <a href='ResetPassword'>
+<Button variant="light"> Forgot Password?</Button></a> */}
+
+          <a href='Signup/'>Don't have an account,click here</a>
           
+
+
     </Col>
     
     </Col>
@@ -79,7 +97,7 @@ export default function Login() {
     </Card>
         </div>
     : <ShimmerThumbnail height={250} rounded /> }
-        
+        </div>
         </>
       )
     }

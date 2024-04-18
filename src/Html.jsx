@@ -3,15 +3,73 @@ import React from 'react'
 import style from "./Css/LMSUI.module.css"
 import Table from 'react-bootstrap/Table';
 import Dashboard from './Dashboard';
+import {Col, Navbar, Row,Button, CardBody} from 'react-bootstrap';
+import { Form } from 'react-router-dom';
+import image from 'react-bootstrap/Image';
+// import Badge from 'react-bootstrap/Badge';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import { Dropdown } from 'bootstrap';
+import { Box} from 'react-bootstrap-icons';
+import Rate from './Rate';
+import Style from "./Css/LMSUI.module.css"
+import { Link } from 'react-router-dom';
+import Courses from './Courses'
+import Home from './Home';
 export default function Html() {
   return (
     <>   
+    <div data-aos="fade-right">
+
+
+
+    <div className={style.navbar}>
+ <Navbar bg="white" data-bs-theme="white">
+
+
+          <Navbar.Brand href="#home">
+          <img
+              src="https://st4.depositphotos.com/2547605/41498/v/450/depositphotos_414980524-stock-illustration-lms-learning-management-system-acronym.jpg"
+              width="130"
+              height="100"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+</Navbar.Brand>
+          <Nav >
+            
+            <Nav.Link href="/Firstpage">Home</Nav.Link>
+            <Nav.Link href="/Module1">Courses</Nav.Link>
+            <Nav.Link href="/Home">Contact</Nav.Link>
+            <Nav.Link href="/Dashboard">More Courses</Nav.Link>
+
+     
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    
+  </button>
+  <ul class="dropdown-menu">
+    <li><button class="dropdown-item" type="button">Favourite courses</button></li>
+    <li><button class="dropdown-item" type="button">Most rated</button></li>
+    <li><button class="dropdown-item" type="button"><a href="/Videosection">Video Section</a></button></li>
+  </ul>
+</div>
+
+                     </Nav>
+        
+      </Navbar>
+      </div>
+      
+
+
+
       <center> 
    <h1> HTML Introduction</h1> 
 </center>
 {/* <div data-aos="fade-left"> */}
 <div className={style.up}>
-  
+  <p class="user-select-none">
 HTML is the standard markup language for creating Web pages.
 
 What is HTML?
@@ -22,7 +80,7 @@ HTML consists of a series of elements
 HTML elements tell the browser how to display the content
 HTML elements label pieces of content such as "this is a heading", "this is a paragraph", "this is a link", etc.
 A Simple HTML Document
-
+</p>
 <hr></hr>
 <center>
   <font color="brown">
@@ -178,7 +236,7 @@ The source file (src), alternative text (alt), width, and height are provided as
 <a class="btn btn-primary" href="/Hnext" role="button">Next</a>
 </div>
 {/* </div> */}
-
+</div>
 </>
 
     

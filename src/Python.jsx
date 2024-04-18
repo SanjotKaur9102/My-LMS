@@ -73,7 +73,11 @@ export default function Python() {
 <center>
 <Image src="https://cdn.programiz.com/sites/tutorial2program/files/python-program-run-idle.jpg" thumbnail/>
 </center>
+
+<a class="btn btn-primary" href="/Dashboard" role="button">Previous</a>
+
 </div>
+
     </>
   )
 }

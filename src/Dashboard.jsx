@@ -1,3 +1,6 @@
+
+
+
 import Card from 'react-bootstrap/Card';
  import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,17 +15,27 @@ import { Box} from 'react-bootstrap-icons';
 import Rate from './Rate';
 import Style from "./Css/LMSUI.module.css"
 import { Link } from 'react-router-dom';
-
+import Signup from './Signup';
 import { Form } from 'react-bootstrap';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 import Footer from './Footer';
-
+import Sidenav from './Components/Sidenav';
+// import Carousel from 'bootstrap/Carousel';
+import Module1 from './Module1';
+import Js from './Contents/Js';
 // import button from 'bootstrap';
 
+// import { faHeart } from "react-icons/fa";
+import FavouritePage from "./FavouritePage"; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+ 
 export default function Dashboard() {
   
 const [searchQuery,setSearchQuery]= useState("")
+const [favourites, setFavourites] = useState([]);
+
 
 const courses=[
   {
@@ -37,7 +50,7 @@ const courses=[
     id:2,
     name:"Javascript Courses",
     image:"https://th.bing.com/th/id/R.4b48cd345e409058773d7e9a12ff181b?rik=T9Nw%2f2MyqHD48w&riu=http%3a%2f%2fnepalijob.com%2fwp-content%2fuploads%2f2019%2f01%2fjavascript-800x445.jpg&ehk=ChNmBox9ebRYPvpUIsX3DxGcsRFLqZdoxVMLCfRwQcY%3d&risl=&pid=ImgRaw&r=0",
-    link:"/Html"
+    link:"/Js"
   },
  
 {
@@ -63,100 +76,88 @@ link:"/Python"
   link:"/Html"
   },
 
+  {
+    id:6,
+    name:"Web Technology",
+    image:"https://th.bing.com/th/id/R.2b50457becf7937cbac9c890bbfe6363?rik=LszTn1t%2fq8CpKw&riu=http%3a%2f%2fwww.netsolvis.com%2fimages%2fweb%2ftechnologies-web.jpg&ehk=%2fjjLnDPBA0FgQQqVvlxQH0OSZqy%2bcrpmTQsMdfMjsSM%3d&risl=&pid=ImgRaw&r=0",
+    link:"/Html"
+    },
   
 {
-  id:6,
+  id:7,
   name:"Java Courses",
   image:"https://www.itprotoday.com/sites/itprotoday.com/files/styles/article_featured_retina/public/java-logo_0.jpg?itok=wfdR6eAu",
   link:"/Html"
   },
 ]
 
+
+const toggleFavourite = (courseId) => {
+  if (favourites.includes(courseId)) {
+    setFavourites(favourites.filter(id => id !== courseId));
+  } else {
+    setFavourites([...favourites, courseId]);
+  }
+};
+
+const isFavourite = (courseId) => {
+  return favourites.includes(courseId);
+};
+
+
+
 const filterCourses=(courseName)=>{
   return courseName.toLowerCase().includes(searchQuery.toLowerCase());
 }
 
+let coursesFound = false;
+
   return (
     
   <>
+<div data-aos="flip-right">
+
+          
+          <Sidenav/>
+         
+
+          <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900" class="d-block w-100" alt="..."
+       width="1530"
+       height="350"
+       />
+       <div className={style.centered}><strong>Easier Access To Studying Material</strong></div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900" class="d-block w-100" alt="..."  
+      width="1530"
+   height="350"
+   />
+   <div className={style.centered}><strong>ENRCICH YOUR PROGRAMMING SKILLS</strong></div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900" class="d-block w-100" alt="..."  
+      width="1530"
+   height="350"
+   />
+   <div className={style.centered}><strong><i>Improves Presentation Skills</i></strong></div>
+    </div>
+  </div>
 
 
-<div className={style.navbar}>
- <Navbar bg="white" data-bs-theme="white">
-
-
-          <Navbar.Brand href="#home">
-          <img
-              src="https://st4.depositphotos.com/2547605/41498/v/450/depositphotos_414980524-stock-illustration-lms-learning-management-system-acronym.jpg"
-              width="130"
-              height="100"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-</Navbar.Brand>
-          <Nav >
-            
-            <Nav.Link href="/Home">Home</Nav.Link>
-            <Nav.Link href="/Courses">Courses</Nav.Link>
-            <Nav.Link href="#Contact">Contact</Nav.Link>
-            <Nav.Link href="#More">More</Nav.Link>
-
-
-            {/* <div className='search-box'>
-              <input type='text' placeholder='Search'/>
-              <button class="btn btn-outline-success" type="submit">Search<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="white" class="bi bi-search" viewBox="-4 1 20 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg>
-</button> 
-            </div> */}
-
-            {/* <img src=''/>  */}
-
-            {/* <div className={style.searchbutton}>
-
-            <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-     
-
-            </div> */}
-
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
   </button>
-  <ul class="dropdown-menu">
-    <li><button class="dropdown-item" type="button">Favourite courses</button></li>
-    <li><button class="dropdown-item" type="button">Most rated</button></li>
-    <li><button class="dropdown-item" type="button"><a href="/Videosection">Video Section</a></button></li>
-  </ul>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-{/* searchbox+icon */}
 
-{/* <div >
-  <Row className={Style.search-Button}>
-    <Col>
-<input type='text'  placeholder='Type here..'></input>
-<button> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" fill="white" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg>
-</button>
-</Col>
-</Row>
-</div> */}
-
-                     </Nav>
-        
-      </Navbar>
-      </div>
-      
-
-   {/* <center>
-    
-  <h1 >DashBoard</h1>
-  </center> */}
 
 
 <Container>
@@ -169,58 +170,12 @@ const filterCourses=(courseName)=>{
                   
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  style={{ marginBottom: "10px" }}
+                  style={{ marginBottom: "10px", marginTop:"15px" }}
                 />
               </Col>
             </Row>
            
           </Container>
-
-         
-    <Carousel centerMode infiniteLoop centerSlidePercentage={90}>
-    {/* <div className='row'> */}
-<div className={style.upimg}>
-   
-  <img src='https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900'
-   width="1530"
-   height="350"
-  />
-   <div className={style.centered}><strong>Easier Access To Studying Material</strong></div>
-  {/* </img> */}
- 
- 
-</div>
-
-{/* <div className={style.upimg}> */}
-<div>
-  <img src='https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900'
-   width="1530"
-   height="350"
-  />
-  <div className={style.centered}><strong>ENRCICH YOUR PROGRAMMING SKILLS</strong></div>
-  {/* </img> */}
-  </div>
-
-<div>
-  <img src='https://img.freepik.com/premium-vector/modern-technology-blue-color_132230-201.jpg?w=900'
-   width="1530"
-   height="350"
-  
-  />
-{/* 
-<img src='https://th.bing.com/th/id/OIP.-7mWMV1pNkEvAW91dMpNKQHaEo?w=308&h=192&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-   width="1530"
-   height="350"
-   className={style.overlay-image}
-  /> */}
-
-  <div className={style.centered}><strong><i>Improves Presentation Skills</i></strong></div>
-  {/* </img> */}
-  </div>
-{/* </div> */}
-
-</Carousel>
-{/* </div> */}
 
 
 <center>
@@ -231,7 +186,7 @@ const filterCourses=(courseName)=>{
     {courses.map((course)=>{
       if(filterCourses(course.name)){
         return(
-          <Col key={course.id} style={{marginBottom:"20px"}}>
+          <Col key={course.id} style={{marginBottom:"20px" , marginLeft:"25px"}}>
             <Card style={{width:'18rem', border:'none'}}>
               {/* <Link to={course.link}> */}
                 <Card.Img className={style.pic}  style={{height:"16rem"}} variant='top' src={course.image}/>
@@ -240,7 +195,14 @@ const filterCourses=(courseName)=>{
                     <Link to={course.link}>
                 <h6>{course.name}</h6>
                 </Link>
+                
+                <div onClick={() => toggleFavourite(course.id)} 
+                      style={{ cursor: "pointer", position: "absolute", top: "10px", right: "10px" }}>
+                        <FontAwesomeIcon icon={faHeart} size="2x" color={isFavourite(course.id) ? "red" : "white"} />
+                      </div>
+
                 <Rate/>
+
                 </Card.Body>
               
             </Card>
@@ -250,8 +212,23 @@ const filterCourses=(courseName)=>{
       }
       return null;
     })}
+
+{/* 
+{!coursesFound && (
+              <Col>
+                <Card style={{ width: "18rem" }}>
+                  <Card.Body>
+                    <h6>Card not found</h6>
+                  </Card.Body>
+                </Card>
+              </Col>
+            )} */}
   </Row>
+
+  {favourites.length > 0 && <FavouritePage courses={courses} favourites={favourites} />}
 {/* <Footer/> */}
+</div>
+
        </>
 
 

@@ -4,15 +4,16 @@
     min-width:500px ;
     max-width:500px;
     border-radius: 22px;
-
+    background-color: rgba(255, 255, 255, 0.8);  
+    /* for transparent look */
 }
 .root{
     height: 100vh;
     display: flex;
     justify-content:center;
     align-items:center;
-    background-color:antiquewhite;
-    background-image: url(https://thumbs.dreamstime.com/z/learning-management-system-lms-words-cloud-business-concept-background-learning-management-system-lms-199791872.jpg);
+    background-color:rgb(191, 235, 232);
+    /* background-image: url(https://thumbs.dreamstime.com/z/learning-management-system-lms-words-cloud-business-concept-background-learning-management-system-lms-199791872.jpg); */
 }
 .up{
 background-color:whitesmoke;
@@ -68,7 +69,7 @@ max-width: 200%;
 }
 
 .up{
-    font-size: 40px;
+    font-size: 18px;
     padding-left: 20px;
     padding-right: 20px;
     justify-content: center;
@@ -243,7 +244,7 @@ background: black;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: azure;
+    color: black;
   }
 
   .overlay-image{
@@ -252,3 +253,145 @@ background: black;
     left: 20px;
     opacity: 0.7; 
   }
+
+  .topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    color: #FFEBEB;
+  }
+  lmsicon {
+    position: fixed;
+    /* bottom: 5px; */
+    right: 5px;
+    width: 50px; /* Adjust the width of the icon */
+    height: 50px; 
+    /* z-index: 999; Ensure the icon is above other elements */
+    color: #00d397;
+}
+.lbutton{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* margin-left:1134px; */
+    margin-left: 1040px;
+}
+.licon{
+    
+    /* margin-right:8px; */
+    margin-left:10px;
+
+}
+.button{
+    align-items: center;
+    justify-content: center;
+    /* font-size: large; */
+    
+}
+.fpic{
+    display: flex;
+   padding-left: 670px;
+   height: 550px;
+width: 100px;
+margin-left: 2px;
+margin-right: 20px;
+padding-left: 530px;
+}
+.ftext{
+    /* display: */
+    justify-content: left;
+    align-items: flex-start;
+
+    /* margin-left: 20px; */
+    margin-right: -40px;
+    /* padding: 50px; */
+    padding-right: 600px;
+
+    position:fixed;
+    top: 15%;
+    left: 25%;
+    /* right: 100px; */
+    transform: translate(-30%, -5%);
+
+}
+.Signpage{
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-bottom: 100px;
+    padding-right: 0px;
+    padding-left: 0px;
+   
+}
+.Sroot{
+    /* background-image: linear-gradient(aqua,rgb(185, 90, 158)); */
+    /* background-color: #00d397; */
+    /* background-image: -moz-linear-gradient(aqua,rgb(185, 90, 158)); */
+background-image: url(https://th.bing.com/th/id/OIP.6iyOSMzBXdIymPtXlGVASAHaE8?w=1012&h=675&rs=1&pid=ImgDetMain) ;
+width:5000px ;
+/* height: 5000px; */
+padding-top: 2px;
+padding-bottom: 20px;
+/* padding-left: 1px; */
+
+/* padding-right: 10px; */
+margin-left: 10px;
+margin-right: 0%;
+margin-right: -2px;
+margin-left: 0px;
+margin-top: 0px;
+margin-bottom: 0px;
+
+}
+/* .set{
+    width: 2000px;
+    height: 3200px;
+    margin-top: 0%;
+    padding-top: 0px;
+} */
+.Quizset{
+    /* margin-top: 5px; */
+    /* padding-top: 15px; */
+    /* background-color: #262626; */
+}
+.Container1{
+    align-items: start;
+    display: flex;
+    justify-content: flex-start;
+   
+}
+.Jpic{
+margin: 20px;
+}
+
+.pdf
+{
+  text-align: center;
+  /* background-color:rgb(140, 135, 170); */
+  /* min-height: 100vh; */
+  /* max-height: 50vh; */
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: center;
+  margin-top: 2px;
+  padding-top: 1px;
+
+  /* font-size: calc(10px +2vmin); */
+  /* color: white; */
+}
+
+.pagebtn{
+   
+}
+
+
+.contactpic{
+    
+}
+
+.error{
+    color: red;
+}

@@ -1,16 +1,18 @@
 import React from "react";
-
+import style from "./Css/LMSUI.module.css"
 const Footer = () => {
   return (
   <>
   
   <div class="card text-center ">
   <div class="card-header">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.PmU9VMXr4SUjofRBCogc5wHaDI&pid=Api&P=0&h=180"></img>
-    {/* <h1>Contact US</h1> */}
+    <div className={style.contactpic}> <b>Need to Get in touch with us ?</b>
+    <img src="https://media.istockphoto.com/id/1497793104/photo/contact-us-concept-male-hand-draws-a-line-under-the-word-contact-us-on-yellow-background.jpg?s=612x612&w=0&k=20&c=xBTPhLTvrMnlCXJ_VNfa4FFBCPXJ75hVVbgyYZIT1B0=" height="70px" width="150px"></img>
+    {/* <h1>Contact US</h1> */} 
+    </div>
   </div>
   <div class="card-body">
-    <h5 class="card-title">LMS lines</h5>
+    <h5 class="card-title">Learning Management System</h5>
     {/* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a> */}
   

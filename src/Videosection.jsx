@@ -36,7 +36,7 @@ export default function Videosection() {
 
 <br></br>
 <br></br>
-<a class="btn btn-danger" href="/Dashboard" role="button">Previous</a>
+<a class="btn btn-danger" href="/Dashboard" role="button">Back to Dashboard</a>
 
 
 </Container>

@@ -1,132 +1,126 @@
-import React, { useState } from 'react' 
-    import Card from 'react-bootstrap/Card';
-    // import Table from 'react-bootstrap/Table';
-    import Form from 'react-bootstrap/Form';
-    import Button from 'react-bootstrap/Button';
-    import 'bootstrap/dist/css/bootstrap.min.css';
-    import { CardBody, Col, Row } from 'react-bootstrap';
-    import style from "./Css/LMSUI.module.css"
-    // import Image from 'react-bootstrap/Image';
-    import InputGroup from 'react-bootstrap/InputGroup';
-    import { ShimmerThumbnail } from "react-shimmer-effects";
-    import {BrowserRouter,Routes,Route} from "react-router-dom"
-    
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Button, Card, Container } from 'react-bootstrap';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import style from "./Css/LMSUI.module.css";
 import Dashboard from './Dashboard';
-//import Login from './Login';
-    // import App from './App';
-export default function Login() {
-    const[buttonClicked,setbuttonClicked]=useState(true)
+
+export default function Signup() {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+ 
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+const navigate= useNavigate();
 
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+      
+    });
+  };
 
-    
-            return (
-      <>
-      <div data-aos="fade-left">
-          {buttonClicked? 
-      <div className={style.root} >
-          
-       
-        <Card className={style.card}>
-          <CardBody>
-          <Row>
-          {/* <Col >  
-          <Image  src="https://th.bing.com/th/id/OIP.5IKf451XJ0TiHnzqkt30TAHaHa?rs=1&pid=ImgDetMain " fluid />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const errors = validateForm();
+
+    if (Object.keys(errors).length === 0) {
+      try {
         
-    </Col> */}
-    <Col>
-    
-    <Col>   
-    <Row>
-    
-     
-    <h4 >Sign up for new Account </h4>
-
-
-    <Form.Label>First name:</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="First name"
-            defaultValue="Enter text"/>
-
-            <Form.Label>Last name:</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Last name"/>
-
-                <Row className='px-3'>
-            <Form.Label>City:</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Enter city"
-             
-            />
-     
-          
-                 </Row>
-                 <Form.Label>Contact:</Form.Label>
-            <Form.Control
-              required
-              type="number"
-              placeholder="Enter Contact"
-             
-            />
-     
-     <Form.Label>Password:</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            placeholder="Enter strong password"/>
-
-<Form.Label>Confirm password:</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            placeholder="Re-enter the password"/>
-
-
-
-
-
-
-
-    {/* <Form.Label >Email ID</Form.Label>
-              <Form.Control
-             
-                type="text"
-                placeholder="enter your email"/>
-    
-    
-              <Form.Label >Password</Form.Label>
-               <Form.Control
-                
-                type="Password"
-                placeholder="password"
-                
-              /> */}
-         
-          <Button onClick={()=>{
-            setbuttonClicked(false)
-          }} variant="primary">Submit</Button>{' '}
-          
-                    
-          </Row>
-          
-    </Col>
-    
-    </Col>
-    </Row>
-    </CardBody>
-    </Card>
-        </div>
-    : <ShimmerThumbnail height={250} rounded /> }
-        </div>
-        </>
-      )
+        const response = await axios.post('/signup', formData);
+        console.log(response.data);
+        // window.location.href = './Home';
+        navigate("/Dashboard");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setFormErrors(errors);
     }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    const { username, email, password, confirmPassword } = formData;
+
+    if (!username) errors.username = 'Username is required!';
+    if (!email) errors.email = 'Email is required!';
+    if (password.length < 8) {
+      errors.password = 'Password must be at least 8 characters';
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/.test(password)) {
+      errors.password = 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+    }
+    if (password !== confirmPassword) errors.confirmPassword = 'Passwords do not match';
+
+    return errors;
+  };
+
+
+
+  return (
+    <div data-aos="zoom-out">
+    <div className={style.Sroot}>
+    {/* <div className={style.Sroot}> */}
+     {/* <div className={style.card}> */}
+        <div className={style.Signpage} >
+      <Card style={{ backgroundColor: 'black', color: 'black', width: '43rem', alignItems: 'center', display: 'flex', height: '34rem', backgroundColor: 'rgba(255, 255, 255, 0.8)'  }}>
+        <Card.Body>
+          <h2 className='fw-bold' style={{ textAlign: 'center' }}>Signup for a new Account</h2>
+          <hr className='my-3' />
+
+          <div>
+            <label htmlFor='username' className="form-label">Username</label>
+            <input type='text' placeholder='Username' className={`form-control`} onChange={handleChange} name='username' id='username' required />
+            {formErrors.username && <p className={style.error}>{formErrors.username}</p>}
+            
+            {/* <p>{formErrors.username }</p> */}
+          </div>
+
+          <div>
+            <label htmlFor='email' className="form-label">Email ID</label>
+            <input type='email' placeholder='Email' className={`form-control`} onChange={handleChange} name='email' id='email' required />
+            {formErrors.email && <p className={style.error}>{formErrors.email}</p>}
+
+            {/* <p>{formErrors.email}</p> */}
+          </div>
+
+          <div>
+            <label htmlFor='password' className="form-label text-black">Password</label>
+            <input type={formData.showPassword ? 'text' : 'password'} placeholder='Password' className={`form-control`} name='password' onChange={handleChange} required />
+            {/* <button type="button" onClick={() => togglePasswordVisibility('showPassword')}></button> */}
+            {formErrors.password && <p className={style.error}>{formErrors.password}</p>}
+
+            {/* <p>{formErrors.password}</p> */}
+          </div>
+
+          <div>
+            <label htmlFor='confirmPassword' className="form-label text-black">Confirm Password</label>
+            <input type={formData.showConfirmPassword ? 'text' : 'password'} placeholder='Confirm Password' className={`form-control`} name='confirmPassword' onChange={handleChange} required />
+            {/* <button type="button" onClick={() => togglePasswordVisibility('showConfirmPassword')}></button> */}
+            {formErrors.confirmPassword && <p className={style.error}>{formErrors.confirmPassword}</p>}
+                   
+            {/* <p>{formErrors.confirmPassword}</p> */}
+          </div>
+
+          <div>
+         
+            <Button className={`rounded-pill mx-5 mt-4 fw-semibold`} style={{ backgroundColor: '#8050EE', borderColor: 'grey', width: '25rem', color: 'white' }} onClick={handleSubmit}>Signup</Button> 
+           <br />
+            
+          </div>
+        </Card.Body>
+      </Card>
+      </div>
+    {/* </div> */}
+    </div>
+     </div>
     
-
-
+  );
+}

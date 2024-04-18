@@ -1,12 +1,4 @@
 import React, { useState } from 'react' 
-// import Card from 'react-bootstrap/Card';
-// // import Table from 'react-bootstrap/Table';
-// import Form from 'react-bootstrap/Form';
-// import Button from 'react-bootstrap/Button';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import { CardBody, Col, Row } from 'react-bootstrap';
-// import style from "./Css/LMSUI.module.css"
-// import Image from 'react-bootstrap/Image';
 // import { ShimmerThumbnail } from "react-shimmer-effects";
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Login from './Login';
@@ -17,29 +9,39 @@ import Home from './Home';
 import Html from './Html';
 import Videosection from './Videosection';
 import Courses from './Courses'
-// import React from 'react';
+import Module from './Components/Module';
 // import { Bootstrap } from 'react-bootstrap-icons';
-// import Dashboard from './Dashboard';
 import Hnext from './Hnext';
 import Python from './Python';
 import Module1 from './Module1';
+import Csspdf from './Csspdf.jsx';
 import Inlang from './Inlang';
 import Quiz from './Quiz';
 import App1 from './App1'
 import Apppp from './Apppp'
 import Footer from './Footer';
-// import Courses from './Courses'
+import Firstpage from "./Components/Firstpage.jsx"
+import ResetPassword from './ResetPassword.jsx';
+import Sidenav from './Components/Sidenav.jsx';
+import Sidebar from './Components/Sidebar.jsx';
+import Htmlpdf from './Pdfs/Htmlpdf.jsx';
+import Htmlppt from './Pdfs/Htmlppt.jsx';
+import Cssppt from './Pdfs/Cssppt.jsx';
+import Htmlvideo from './Pdfs/Htmlvideo.jsx';
+import CssVideo from './Pdfs/CssVideo.jsx';
+import FavouritePage from './FavouritePage.jsx';
+import HtmlQuiz from './Pdfs/HtmlQuiz.jsx';
+import Js from './Contents/Js.jsx';
+
 export default function App(){
-
-
 
   return(
       <BrowserRouter>
  
 
   <Routes>
-    <Route path="/" element={<Login/>}></Route>
-
+    <Route path="/" element={<Firstpage/>}></Route>
+    <Route path="/Login" element={<Login/>}></Route>
    <Route path="/Signup" element={<Signup/>}></Route>
    <Route path="/Navbar" element={<Navbar/>}></Route>
    <Route path="/Dashboard" element={<Dashboard/>}></Route>
@@ -49,13 +51,31 @@ export default function App(){
    <Route path="/Python" element={<Python/>}></Route>
    <Route path="/Videosection" element={<Videosection/>}></Route>
    <Route path="/Courses" element={<Courses/>}></Route>
+   <Route path="/Module" element={<Module/>}></Route>
+
+
    <Route path="/Module1" element={<Module1/>}></Route>
+   <Route path="Firstpage" element={<Firstpage/>}></Route>
    <Route path="/Inlang" element={<Inlang/>}></Route>
    <Route path="/Quiz" element={<Quiz/>}></Route>
    <Route path="/App1" element={<App1/>}></Route>
    <Route path="/Apppp" element={<Apppp/>}></Route>
    {/* <Route path="/html.pdf" element={<html.pdf/>}></Route> */}
    <Route path="/Footer" element={<Footer/>}></Route>
+   <Route path="/ResetPassword" element={<ResetPassword/>}></Route>
+   <Route path="/Sidenav" element={<Sidenav/>}></Route>
+   <Route path="/Sidebar" element={<Sidebar/>}></Route>
+   <Route path="/Csspdf" element={<Csspdf/>}></Route>
+   <Route path="/Htmlpdf" element={<Htmlpdf/>}></Route>
+   <Route path="/Htmlppt" element={<Htmlppt/>}></Route>
+   <Route path="/Cssppt" element={<Cssppt/>}></Route>
+   <Route path="/Htmlvideo" element={<Htmlvideo/>}></Route>
+   <Route path="/CssVideo" element={<CssVideo/>}></Route>
+   <Route path="/FavouritePage" element={<FavouritePage/>}></Route>
+   <Route path="/HtmlQuiz" element={<HtmlQuiz/>}></Route>
+   <Route path="/Js" element={<Js/>}></Route>
+
+
   </Routes>
   </BrowserRouter>
  

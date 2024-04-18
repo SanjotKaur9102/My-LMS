@@ -9,6 +9,8 @@ import Inlang from './Inlang';
 import Quiz from './Quiz';
 import App1 from './App1';
 import Apppp from './Apppp'
+// import Module1 from './Module1';
+import Html from './Html';
 export default function  hello() {
   return (<>
   <div className={style.back}>
@@ -36,15 +38,18 @@ export default function  hello() {
           </NavLink> */}
 
 
+          {/* ******* */}
+{/* 
+
           <Dropdown className={style.modulebuttons}>
-      <Dropdown.Toggle variant="warning" id="dropdown-basic">
+      <Dropdown.Toggle variant="warning" id="Inlang">
        Module 1
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
 
-       <button onClick={'/Inlang'}> <Dropdown.Item href="/Inlang">Languages</Dropdown.Item> </button>
-       <button onClick={'/Quiz'}> <Dropdown.Item href="/Quiz">Quiz</Dropdown.Item> </button>
+       <ul onClick={'/Inlang'}> <Dropdown.Item href="/Inlang">Languages</Dropdown.Item> </ul>
+       <ul onClick={'/Quiz'}> <Dropdown.Item href="/Quiz">Quiz</Dropdown.Item> </ul>
      
       </Dropdown.Menu>
     </Dropdown>
@@ -73,12 +78,12 @@ export default function  hello() {
         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
       </Dropdown.Menu>
-    </Dropdown>
+    </Dropdown> */}
 
 
 
 
-          {/* <ul className="collapse list-unstyled" id="module1">
+          <ul className="collapse list-unstyled" id="module1">
             <li>
               <a style= {{contentcolor:"black"}}href="#">Home 1</a>
             </li>
@@ -87,7 +92,7 @@ export default function  hello() {
             
             </NavLink>
              </li>
-          </ul> */}
+          </ul>
 
 
 
@@ -95,18 +100,18 @@ export default function  hello() {
           </ul>
 
 
-{/*           
+          
           <ul className="list-unstyled components">
         <li>
-        <NavLink href="#module2" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
+        <NavLink  href='module2' data-toggle="collapse"   aria-expanded="false" className="dropdown-toggle">
           Module2
           </NavLink>
-          <ul className="collapse list-unstyled" id="module2">
+          <ul className="collapse list-unstyled" id='module2'>
             <li>
             <Nav.Link href="#">Chapter1</Nav.Link>
        </li>
             <li>
-            <Nav.Link href="#">Chapter2</Nav.Link>
+            <a href="#">Chapter2</a>
        </li>
           </ul>
           </li>
@@ -142,16 +147,17 @@ export default function  hello() {
           </ul>
           </li>
           </ul>
-//          <Nav.Link href="#">About</Nav.Link>
-//         <Nav.Link href="#services">Services</Nav.Link>
-//         <Nav.Link href="#contact">Contact</Nav.Link> */}
-{/* //         </center> */}
+         <Nav.Link href="#">About</Nav.Link>
+       <Nav.Link href="#services">Services</Nav.Link>
+       <Nav.Link href="#contact">Contact</Nav.Link>
+
+
 </Nav>
 {/* </NavbarCollapse> */}
    </Navbar>
    </CardBody>
    </Card>
-   </Container>
+   </Container> 
    {/* </Navbar.Collapse> */}
   
    </div>
